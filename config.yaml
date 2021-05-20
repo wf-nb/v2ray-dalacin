@@ -5,8 +5,9 @@ loglevel: info
 ipv6: false
 # 自定义dns配置, 可以继续写多个
 dns:
-- 1.1.1.1
-- 1.0.0.1
+- 8.8.8.8
+# 也允许文本形式的v2ray json配置
+- '{"address":"1.0.0.1","domains":["geosite:google@cn"]}'
 
 # 节点服务配置, 可以直接多开
 servers:
@@ -37,10 +38,20 @@ servers:
   routing:
     # 指定的域名, ip走这个出口sender
     - sender: 127.0.0.1
+      # 镶套代理, 转发至以下代理
+      proxy:
+        # 目前只支持socks
+        protocol: socks
+        address: 1.1.1.1
+        port: 222
+        user: 111
+        password: 1113
       domain:
         - baidu.com
       ip:
         - 1.1.1.1
+      # 匹配被代理的协议类型
+      network: tcp,udp
     # 如果只填写sender, 表示默认走这个出口
     - sender: 0.0.0.0
     # 如果sender设置为block, 表示阻止访问
