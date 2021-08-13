@@ -5,6 +5,3 @@
 
 ## 配置
 请前往`/etc/dalacin/config.yaml`文件, 参阅注释进行配置. 如果中文显示乱码可以先执行: `export LANG="en_US.UTF-8"`
-
-## 支持
-TG群: https://t.me/v2ray_dalacin
